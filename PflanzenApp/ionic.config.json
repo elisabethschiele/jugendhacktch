@@ -1,0 +1,7 @@
+{
+  "name": "PflanzenApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
