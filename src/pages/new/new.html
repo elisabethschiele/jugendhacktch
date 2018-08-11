@@ -7,11 +7,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+    <ion-list-header>Lege hier deine Pflanze an</ion-list-header>
+    <ion-searchbar
+      [(ngModel)]="searchTerm"
+      (ionInput)="setFilteredItems()">
+    </ion-searchbar>
+
+    <ion-list>
+        <ion-item *ngFor="let item of items">
+          {{item.title}}
+        </ion-item>
+      </ion-list>
 </ion-content>
