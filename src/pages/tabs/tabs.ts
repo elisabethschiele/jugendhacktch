@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
-import { HomePage } from '../home/home';
+import { NewPage } from '../new/new';
+import { RegalPage } from '../regal/regal';
+import { StatistikenPage } from '../statistiken/statistiken';
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  tab1Root = StatistikenPage;
+  tab2Root = RegalPage;
+  tab3Root = NewPage;
 
   constructor() {
 
