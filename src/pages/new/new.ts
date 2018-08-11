@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-//import { Data } from '../../providers/data/data';
 import { RestProvider } from '../../providers/rest/rest';
 import 'rxjs/add/operator/map';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-new',
@@ -14,7 +14,7 @@ export class NewPage {
   items: any;
   filteredItems: any;
 
-  constructor(public navCtrl: NavController, public restProvider: RestProvider) {
+  constructor(public navCtrl: NavController, public restProvider: RestProvider, public storage: Storage) {
     this.getPflanzen();
   }
 
@@ -40,6 +40,13 @@ export class NewPage {
     return this.items.filter((item) => {
       return item.Name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });
+  }
+
+  addPlant(item){
+    this.storage.set('pflanze', JSON.stringify(item));
+    /*this.storage.get('pflanze').then((val) =>  {
+        console.log('pflanze', JSON.parse(val));
+    });*/
   }
 
 }
