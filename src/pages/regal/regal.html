@@ -1,11 +1,22 @@
+
+
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Mein Blumenregal
+      <div class="Title">Mein Blumenregal</div>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <div style="background-image:url(testregal.jpg)"></div>
+<ion-content  padding>
+  <ion-grid class="aussen">
+    <ion-row>
+      <ion-col *ngFor ="let data of Data" class="plant">
+        <img class="img.fluid" src="/assets/imgs/cactus.jpg">
+        <div class="PlantName">
+          {{data.Name}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
