@@ -11,8 +11,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { HttpModule } from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Data } from '../providers/data/data';
-//import { DataProvider } from '../providers/data/data';
+import { RestProvider } from '../providers/rest/rest';
+import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,11 @@ import { Data } from '../providers/data/data';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
+
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -38,7 +42,7 @@ import { Data } from '../providers/data/data';
   providers: [
     StatusBar,
     SplashScreen,
-    Data,
+    RestProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     //DataProvider
   ]

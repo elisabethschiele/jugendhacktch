@@ -43,10 +43,25 @@ export class NewPage {
   }
 
   addPlant(item){
-    this.storage.set('pflanze', JSON.stringify(item));
-    /*this.storage.get('pflanze').then((val) =>  {
-        console.log('pflanze', JSON.parse(val));
-    });*/
+    //this.storage.set('pflanze', "Efeu");
+    this.storage.get('pflanze').then((val) =>  {
+        /*console.log('pflanze', JSON.parse(val));
+        this.a = Array(val);
+        console.log(item);
+        console.log(this.a);*/
+        //console.log(item);
+        //console.log(val);
+        var a = {};
+        a = val + (JSON.stringify(item));
+        this.storage.set('pflanze', a);
+        console.log('neu', a);
+    });
+  }
+
+  deleteAll(){
+
+    this.storage.clear();
+
   }
 
 }
