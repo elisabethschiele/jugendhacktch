@@ -8,15 +8,15 @@
 
 <ion-content>
     <ion-list-header>Lege hier deine Pflanze an</ion-list-header>
-    <button ion-button (click)="deleteAll()">Alle löschen</button>
     <ion-searchbar
       [(ngModel)]="searchTerm"
       (ionInput)="setFilteredItems()">
     </ion-searchbar>
 
     <ion-list>
-        <ion-item *ngFor="let item of filteredItems" (click)="addPlant(item)">
+        <button ion-button round outline color = "dark" *ngFor="let item of filteredItems" (click)="addPlant(item)">
           {{item.Name}}
-        </ion-item>
+        </button>
       </ion-list>
+      <button ion-button color = "danger" (click)="deleteAll()">Alle löschen</button>
 </ion-content>
