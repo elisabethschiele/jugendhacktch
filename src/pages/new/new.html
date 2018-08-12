@@ -8,7 +8,7 @@
 
 <ion-content>
     <ion-list-header>Lege hier deine Pflanze an</ion-list-header>
-    <button ion-button (click)="deleteAll">Alle löschen</button>
+    <button ion-button (click)="deleteAll()">Alle löschen</button>
     <ion-searchbar
       [(ngModel)]="searchTerm"
       (ionInput)="setFilteredItems()">

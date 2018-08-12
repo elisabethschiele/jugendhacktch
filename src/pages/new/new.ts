@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
+//import { AlterController } from 'ionic-angular';
 
 @Component({
   selector: 'page-new',
@@ -51,16 +52,26 @@ export class NewPage {
         console.log(this.a);*/
         //console.log(item);
         //console.log(val);
-        var a = {};
-        a = val + (JSON.stringify(item));
-        this.storage.set('pflanze', a);
-        console.log('neu', a);
-    });
+          var a = {};
+          if(val != null){
+            a = val + (JSON.stringify(item));
+          }
+          else{
+            a = JSON.stringfy(item);
+          }
+          this.storage.set('pflanze', a);
+          console.log(a);
+      });
   }
 
   deleteAll(){
-
-    this.storage.clear();
+console.log('loeschen');
+    this.storage.remove('pflanze').then((val) =>  {
+      this.storage.get('pflanze').then((val2) => {
+        //console.log(JSON.stringify(val2));
+        if (val2 == '') console.log('leer');
+      });
+    });
 
   }
 
