@@ -1,13 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Neue Pflanze
+      <div class="myTitle">
+        Neue Pflanze
+      </div>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-list-header>Lege hier deine Pflanze an</ion-list-header>
+    <ion-list-header>
+      <div class="SubTitle">
+        Lege hier deine Pflanze an
+      </div>
+    </ion-list-header>
     <ion-searchbar
       [(ngModel)]="searchTerm"
       (ionInput)="setFilteredItems()">
@@ -18,5 +24,5 @@
           {{item.Name}}
         </button>
       </ion-list>
-      <button ion-button color = "danger" (click)="deleteAllClicked()">Alle löschen</button>
+      <button ion-button color = "danger" (click)="deleteAll()">Alle löschen</button>
 </ion-content>

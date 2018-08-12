@@ -62,45 +62,25 @@ export class NewPage {
           this.storage.set('pflanze', a);
           console.log(a);
       });
-      this.presentNewPlantAlert(item);
+      this.presentAlert(item);
   }
 
-  presentNewPlantAlert(item){
+  presentAlert(item){
     let alert = this.alertCtrl.create({
       title: item.Name + ' wurde zu deinen Pflanzen hinzugefügt'
     });
     alert.present();
   }
 
-  deleteAllClicked(){
-    console.log('loeschen');
-    this.presentDeleteAllAlert();
-  }
-
   deleteAll(){
+console.log('loeschen');
     this.storage.remove('pflanze').then((val) =>  {
       this.storage.get('pflanze').then((val2) => {
         //console.log(JSON.stringify(val2));
         if (val2 == '') console.log('leer');
       });
     });
+
   }
 
-  presentDeleteAllAlert(){
-    let alert = this.alertCtrl.create({
-      title: 'Willst du all deine Daten löschen?',
-      buttons: [
-        {
-          text: 'Ja',
-          handler: () => {
-            this.deleteAll();
-          }
-        },
-        {
-          text: 'Nein'
-        }
-      ]
-    })
-    alert.present();
-  }
 }

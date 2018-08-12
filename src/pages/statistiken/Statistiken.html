@@ -1,19 +1,19 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Statistiken</ion-title>
+    <ion-title>
+      <div class="myTitle">
+        Statistiken
+      </div>  
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Statistiken von den Pflanzen</h2>
   <div class="test">
   	<p>
-  	Schädlich für Menschen und alle anderen Tiere, Tödlich für Babys: {{sum}} <br>
-
-  Microgramme die pro Stunde von deiner/n Pflanzen gefiltert werden: {{temp}} <br>
-
-  Du hast schon {{auto}} Stunden die Abgase deines Autos gefiltert.
-</p>
-
+  	   Schädlich für Menschen und alle anderen Tiere, Tödlich für Babys: <span class="zahl"> {{sum}} </span> <br>
+       Microgramme die pro Stunde von deiner/n Pflanzen gefiltert werden: <span class="zahl"> {{temp}} </span> <br>
+       Du hast schon <span class="zahl"> {{auto}} </span> Stunden die Abgase deines Autos gefiltert.
+    </p>
   </div>
 </ion-content>
