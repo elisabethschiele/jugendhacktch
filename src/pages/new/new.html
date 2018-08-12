@@ -20,9 +20,11 @@
     </ion-searchbar>
 
     <ion-list>
-        <button ion-button round outline color = "dark" *ngFor="let item of filteredItems" (click)="addPlant(item)">
+
+        <button ion-button class="Auswahl" *ngFor="let item of filteredItems" (click)="addPlant(item)">
           {{item.Name}}
         </button>
+    
       </ion-list>
       <button ion-button color = "danger" (click)="deleteAllClicked()">Alle löschen</button>
 </ion-content>
