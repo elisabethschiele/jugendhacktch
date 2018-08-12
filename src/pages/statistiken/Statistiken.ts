@@ -21,36 +21,41 @@ export class StatistikenPage {
   	this.temp=this.sum_benzol_formaldehyd_trichlorethen();
   	this.sum=this.is_toxic();
   	this.auto=this.temp/2500;
-  	this.getpflanzen();
-
+  	this.Data=this.storage.get('pflanze');
   }
 
 
 
 sum_benzol_formaldehyd_trichlorethen(){
 var sum =0;
- for(var i=0;i<this.Data.length;i++){
-    sum += Number(this.Data[i]["Benzol"]);
-	sum += Number(this.Data[i]["Formaldehyd"]);
-	sum += Number(this.Data[i]["Trichlorethen"]);
-}
+  console.log(this.Data)
+  try {
+    for(var i=0;i<this.Data.length;i++){
+      sum += Number(this.Data[i]["Benzol"]);
+	  sum += Number(this.Data[i]["Formaldehyd"]);
+	  sum += Number(this.Data[i]["Trichlorethen"]);
+    } 
+  } catch(e){
+	  console.log("empty database")
+  }	
+
+ 	
+ 
 var temp=Number(sum).toFixed(4);
 return temp;
 }
 
-getpflanzen(){
-
-this.Data=this.storage.get('pflanze').then((val) =>  {
-        console.log('pflanze', JSON.parse(val));
-    });} 
-
 is_toxic(){
-var sum =0;
-for(var i=0;i<this.Data.length;i++){
-	sum += Number(this.Data[i]["Toxic"]);
-}
-return((sum==0) ? "Nein":"Ja");		
-}
+  var sum =0;
+  try {
+    for(var i=0;i<this.Data.length;i++){
+	  sum += Number(this.Data[i]["Toxic"]);
+    }
+  } catch(e){
+	console.log("empty database")
+  }	
+  return((sum==0) ? "Nein":"Ja");		
+  }
 }
 
 
