@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
-//import { AlterController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-new',
@@ -15,7 +15,7 @@ export class NewPage {
   items: any;
   filteredItems: any;
 
-  constructor(public navCtrl: NavController, public restProvider: RestProvider, public storage: Storage) {
+  constructor(public navCtrl: NavController, public restProvider: RestProvider, public storage: Storage, private alertCtrl: AlertController) {
     this.getPflanzen();
   }
 
@@ -62,6 +62,14 @@ export class NewPage {
           this.storage.set('pflanze', a);
           console.log(a);
       });
+      this.presentAlert(item);
+  }
+
+  presentAlert(item){
+    let alert = this.alertCtrl.create({
+      title: item.Name + ' wurde zu deinen Pflanzen hinzugefügt'
+    });
+    alert.present();
   }
 
   deleteAll(){
