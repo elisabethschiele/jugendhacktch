@@ -54,10 +54,10 @@ export class NewPage {
         //console.log(val);
           var a = {};
           if(val != null){
-            a = val + (JSON.stringify(item));
+            a = val + (JSON.stringify(item) + ",");
           }
           else{
-            a = JSON.stringfy(item);
+            a = JSON.stringfy(item) + ",";
           }
           this.storage.set('pflanze', a);
           console.log(a);
